@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -49,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function animateSkillBars() {
         skillBars.forEach(bar => {
             const width = bar.getAttribute('data-width');
-            if (isElementInViewport(bar)) {
+            if (isElementInViewport(bar) && !bar.classList.contains('animated')) {
                 bar.style.width = width;
+                bar.classList.add('animated');
             }
         });
     }
@@ -63,11 +63,56 @@ document.addEventListener('DOMContentLoaded', function () {
         );
     }
 
-    window.addEventListener('scroll', animateSkillBars);
-    animateSkillBars(); // Run once on page load
+    // Theme toggle functionality
+    const themeToggle = document.createElement('div');
+    themeToggle.className = 'theme-toggle';
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    document.body.appendChild(themeToggle);
 
-    // Show first slide initially
-    showSlide(0);
+    // Check for saved theme preference or use default
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    // Toggle theme on click
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        
+        // Update toggle icon
+        themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        
+        // Save preference to localStorage
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+
+    // Animate elements on scroll
+    const animatedElements = document.querySelectorAll('.skill-card, .portfolio-item, .about-image, .hero-content');
+
+    function animateOnScroll() {
+        animatedElements.forEach((el) => {
+            if (isElementInViewport(el) && !el.classList.contains('animated')) {
+                el.classList.add('animated');
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }
+        });
+        animateSkillBars();
+    }
+
+    // Apply initial animations
+    animateOnScroll();
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Name animation 
+    const nameText = document.querySelector('.hero-content h1 span');
+    if (nameText) {
+        nameText.classList.add('animated-text');
+    }
 
     // Form submission
     const contactForm = document.getElementById('contactForm');
