@@ -39,20 +39,12 @@ Hi, I'm **Kunal Kharga**, a third-year **BCA student** from **New Summit College
 
 ---
 
-## 📁 Folder Structure
+## 📊 Deployment & File Flow Diagram
 
-KunalPortfolio/
-├── index.html
-├── about.html
-├── contact.html
-├── portfolio.html
-├── css/
-│ └── style.css
-├── js/
-│ └── script.js
-├── images/
-│ └── [project and profile images]
-└── README.md
+The following diagram illustrates how my portfolio website is structured and how files are served to the client from a static file host/web server.
+
+![Portfolio Architecture Diagram](Assets/diagram.png)
+
 
 ---
 
