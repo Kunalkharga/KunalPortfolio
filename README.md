@@ -51,6 +51,8 @@ The following diagram illustrates how my portfolio website is structured and how
 ## 📝 License
 
 This project is open-source and free to use. Feel free to fork, modify, or contribute.
+This project is licensed under the [MIT License](LICENSE).
+
 
 ---
 
