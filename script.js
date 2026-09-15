@@ -80,10 +80,10 @@ document.addEventListener('DOMContentLoaded', function () {
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         const isDarkMode = document.body.classList.contains('dark-mode');
-        
+
         // Update toggle icon
         themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        
+
         // Save preference to localStorage
         localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     });
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Apply initial animations
     animateOnScroll();
-    
+
     // Add scroll event listener
     window.addEventListener('scroll', animateOnScroll);
 
@@ -138,41 +138,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     const form = document.getElementById('contactForm');
-const result = document.getElementById('result');
+    const result = document.getElementById('result');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const formData = new FormData(form);
-  const object = Object.fromEntries(formData);
-  const json = JSON.stringify(object);
-  result.innerHTML = "Please wait...";
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        result.innerHTML = "Please wait...";
 
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: json
-  })
-  .then(async (response) => {
-    let json = await response.json();
-    if (response.status == 200) {
-      result.innerHTML = "Form submitted successfully";
-    } else {
-      console.log(response);
-      result.innerHTML = json.message;
-    }
-  })
-  .catch(error => {
-    console.log(error);
-    result.innerHTML = "Something went wrong!";
-  })
-  .then(function() {
-    form.reset();
-    setTimeout(() => {
-      result.style.display = "none";
-    }, 3000);
-  });
-});
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = "Form submitted successfully";
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+            })
+            .then(function () {
+                form.reset();
+                setTimeout(() => {
+                    result.style.display = "none";
+                }, 3000);
+            });
+    });
 });
