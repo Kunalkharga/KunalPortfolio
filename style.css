@@ -1316,6 +1316,11 @@ footer {
         grid-template-columns: 1fr;
     }
     
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
     }
