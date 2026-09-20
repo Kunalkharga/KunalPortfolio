@@ -766,6 +766,65 @@ nav ul li a.active {
     padding: 15px;
 }
 
+/* GitHub Contributions Section */
+/* .github-contributions {
+    background-color: var(--white);
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode .github-contributions {
+    background-color: var(--card-dark);
+}
+
+.calendar-container {
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 15px;
+    border: 1px solid #d0d7de;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.dark-mode .calendar-container {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    box-shadow: none;
+}
+
+.github-stats-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.stats-img-light {
+    display: block;
+    max-width: 100%;
+}
+
+.stats-img-dark {
+    display: none;
+    max-width: 100%;
+}
+
+.dark-mode .stats-img-light {
+    display: none;
+}
+
+.dark-mode .stats-img-dark {
+    display: block;
+}
+
+.github-calendar-img h3 {
+    color: var(--text-color);
+}
+
+.dark-mode .github-calendar-img h3 {
+    color: var(--text-dark-mode);
+} */
+
 /* Portfolio Section */
 .portfolio {
     background-color: var(--light-bg);
